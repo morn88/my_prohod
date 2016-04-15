@@ -61,13 +61,13 @@ class OtkGui(QtGui.QWidget):
             print(len(my_list))
             self.table.setRowCount(len(my_list))
             for i in range(len(my_list)):
-                print(len(my_list[i].split('/')))
+                # print(len(my_list[i].split('/')))
                 my_ready_list = my_list[i].split('/')
                 for j in range(len(my_ready_list)):
                     self.table.setItem(i, j, QtGui.QTableWidgetItem(my_ready_list[j]))
-                print(i)
+                # print(i)
 
-            print(my_ready_list)
+            # print(my_ready_list)
 
         else:
             print("List wasn't create")
