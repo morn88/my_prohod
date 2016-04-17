@@ -94,8 +94,8 @@ def my_request(date1, date2):
     for item in main_request_list:
         try:
             # print(item[2], item[3], ' '.join(full_dict[item[5]]), events_dict[item[1]], device_dict[item[4]])
-            out_list.append(str(item[2]) + "/" + str(item[3]) + "/" + ' '.join(full_dict[item[5]]) +
-                            "/" + events_dict[item[1]] + "/" + device_dict[item[4]])
+            out_list.append(str(item[2]) + "#" + str(item[3]) + "#" + ' '.join(full_dict[item[5]]) +
+                            "#" + events_dict[item[1]] + "#" + device_dict[item[4]])
         except KeyError:
             try:
                 # print(item[2], item[3], ' '.join(full_dict[item[5]]), 'Нет данных')
@@ -103,7 +103,7 @@ def my_request(date1, date2):
                     "{0} {1} {2} Нет данных".format(str(item[2]), str(item[3]), ' '.join(full_dict[item[5]])))
             except KeyError:
                 # print(item[2], item[3], "Нет данных", 'Нет данных')
-                out_list.append(str(item[2]) + "/" + str(item[3]) + "/" + "Нет данных" + "/" + 'Нет данных')
+                out_list.append(str(item[2]) + "#" + str(item[3]) + "#" + "Нет данных" + "#" + 'Нет данных')
 
     con.close()
     print("Общее время выполнения запросов: ", time1 + time2 + time3 + time4 + time5 + time6)
