@@ -65,6 +65,7 @@ class OtkGui(QtGui.QWidget):
     def give_date(self):
         my_date = modalWindow.cld1.selectedDate()
         my_date2 = modalWindow.cld1.selectedDate()
+        modalWindow.close()
         self.label1.setText(my_date.toString('dd.MM.yyyy') + ' - ' + my_date2.toString('dd.MM.yyyy'))
         my_date = my_date.toPyDate()
         print(my_date)
