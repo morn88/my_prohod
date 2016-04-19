@@ -10,7 +10,6 @@ class OtkGui(QtGui.QWidget):
         self.setGeometry(50, 50, 900, 600)
         self.setWindowTitle('Просмотр событий проходной')
         self.setWindowIcon(QtGui.QIcon('kpp.png'))
-        self.showMaximized()
 
         self.btn = QtGui.QPushButton("Выбор даты", self)
         self.btn.resize(100, 25)
@@ -18,6 +17,8 @@ class OtkGui(QtGui.QWidget):
 
         self.label = QtGui.QLabel('Выбранная дата: ', self)
         self.label1 = QtGui.QLabel(self)
+
+        self.style_sheet = "::section{Background-color:#cdc8e3;color:black;}"
 
         self.table = QtGui.QTableWidget(0, 5, self)
         self.table.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
@@ -29,6 +30,8 @@ class OtkGui(QtGui.QWidget):
         self.table.setHorizontalHeaderItem(4, QtGui.QTableWidgetItem('Место'))
         self.table.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.table.horizontalHeader().setStretchLastSection(True)
+        self.table.horizontalHeader().setStyleSheet(self.style_sheet)
+        self.table.verticalHeader().setStyleSheet(self.style_sheet)
         self.table.setDisabled(True)
 
         self.my_grid = QtGui.QGridLayout(self)
@@ -79,7 +82,9 @@ class OtkGui(QtGui.QWidget):
                 my_ready_list = my_list[i].split('#')
                 for j in range(len(my_ready_list)):
                     self.table.setItem(i, j, QtGui.QTableWidgetItem(my_ready_list[j]))
-                    # print(i)
+
+            self.table.setAlternatingRowColors(True)
+            self.table.setStyleSheet("alternate-background-color: #bdc4e2;background-color: #8f8c9e;");
             self.table.resizeColumnsToContents()
             self.table.setDisabled(False)
 
