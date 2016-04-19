@@ -20,7 +20,6 @@ class OtkGui(QtGui.QWidget):
         self.label1 = QtGui.QLabel(self)
 
         self.table = QtGui.QTableWidget(0, 5, self)
-        self.table.move(10, 35)
         self.table.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         self.table.setHorizontalHeaderItem(0, QtGui.QTableWidgetItem("Дата"))
         self.table.setHorizontalHeaderItem(1, QtGui.QTableWidgetItem("Время"))
@@ -58,6 +57,7 @@ class OtkGui(QtGui.QWidget):
         modalWindow.cld1.setDateRange(QtCore.QDate.currentDate().addDays(-120), QtCore.QDate.currentDate())
         modalWindow.cld1.selectionChanged.connect(self.give_date)
         modalWindow.cld1.setHorizontalHeaderFormat(2)
+        modalWindow.cld1.setVerticalHeaderFormat(0)
 
         modalWindow.show()
 
